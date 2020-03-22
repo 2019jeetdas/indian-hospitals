@@ -1,0 +1,57 @@
+
+# Question - E : Number of Hospitals statewise
+
+print("\n--- Number of Hospitals statewise :-------")
+
+df_state = df.groupby(['State'])[['District_ID']].count()
+
+print("-----------------------------")
+print("\t Number of Hospitals statewise  :")
+print("-----------------------------")
+df2= df_state['District_ID'] 
+print(df2)
+print("-----------------------------")
+
+--- Number of Hospitals statewise :-------
+-----------------------------
+         Number of Hospitals statewise  :
+-----------------------------
+State
+Andaman and Nicobar Islands       5
+Andhra Pradesh                 1380
+Arunachal Pradesh                10
+Assam                           183
+Bihar                          1039
+Chandigarh                       60
+Chhattisgarh                    445
+Dadra and Nagar Haveli           18
+Daman and Diu                     5
+Goa                              84
+Gujarat                        3807
+Haryana                        1669
+Himachal Pradesh                485
+Jammu and Kashmir                96
+Jharkhand                       478
+Karnataka                      2226
+Kerala                          890
+Lakshadweep                       1
+Madhya Pradesh                  899
+Maharashtra                    4807
+Manipur                          19
+Meghalaya                        62
+Mizoram                          86
+Nagaland                         14
+North Twenty Four Parganas        1
+Odisha                          718
+Puducherry                       47
+Punjab                         1201
+Rajasthan                      1209
+Sikkim                            2
+Tamil Nadu                     2399
+Telangana                      1175
+Tripura                          41
+Uttar Pradesh                  3158
+Uttarakhand                     390
+West Bengal                    1164
+Name: District_ID, dtype: int64
+-----------------------------
