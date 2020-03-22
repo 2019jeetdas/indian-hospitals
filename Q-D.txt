@@ -1,3 +1,4 @@
+
 # Question - D : Hospitals in West Bengal
 
 print("\n--- Hospitals in West Bengal :-------")
@@ -8,6 +9,7 @@ print("-----------------------------")
 print("\t Disticts with no of hospitals in West Bengal :")
 print("-----------------------------")
 df1= df_wb_dist['District_ID'] 
+print(df1)
 
 print("-----------------------------")
 count = 0
@@ -22,12 +24,32 @@ print('----------------------------------------------')
 print(df_wb['Hospital_Name'])
 print('--------------------------------')
 
-
-
 --- Hospitals in West Bengal :-------
 -----------------------------
          Disticts with no of hospitals in West Bengal :
 -----------------------------
+District
+24 Pargs (N)           2
+Bankura               35
+Bardhaman            117
+Birbhum               31
+Cooch Behar           13
+Darjeeling            30
+Dinajpur Dakshin       3
+Dinajpur Uttar         6
+Hooghly               74
+Howrah                81
+Jalpaiguri            13
+Kolkata              415
+Malda                 21
+Medinipur East        69
+Medinipur West        47
+Murshidabad           24
+Nadia                 49
+North 24 Parganas     71
+Purulia               10
+South 24 Parganas     53
+Name: District_ID, dtype: int64
 -----------------------------
 total no. of district in West Bengal =  20
 -----------------------------
