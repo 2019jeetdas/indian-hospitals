@@ -1,0 +1,64 @@
+# Question – B : print column names :
+
+print('------------------------\n Column names as follows :')
+print('------------------------\n')
+count = 0
+for col in df.columns: 
+        print(count,"-->",col)
+        count = count+1
+print("\n-----------------------------\n")
+------------------------
+ Column names as follows :
+------------------------
+
+0 --> Sr_No
+1 --> Location_Coordinates
+2 --> Location
+3 --> Hospital_Name
+4 --> Hospital_Category
+5 --> Hospital_Care_Type
+6 --> Discipline_Systems_of_Medicine
+7 --> Address_Original_First_Line
+8 --> State
+9 --> District
+10 --> Subdistrict
+11 --> Pincode
+12 --> Telephone
+13 --> Mobile_Number
+14 --> Emergency_Num
+15 --> Ambulance_Phone_No
+16 --> Bloodbank_Phone_No
+17 --> Foreign_pcare
+18 --> Tollfree
+19 --> Helpline
+20 --> Hospital_Fax
+21 --> Hospital_Primary_Email_Id
+22 --> Hospital_Secondary_Email_Id
+23 --> Website
+24 --> Specialties
+25 --> Facilities
+26 --> Accreditation
+27 --> Hospital_Regis_Number
+28 --> Registeration_Number_Scan
+29 --> Nodal_Person_Info
+30 --> Nodal_Person_Tele
+31 --> Nodal_Person_Email_Id
+32 --> Town
+33 --> Subtown
+34 --> Village
+35 --> Establised_Year
+36 --> Ayush
+37 --> Miscellaneous_Facilities
+38 --> Number_Doctor
+39 --> Num_Mediconsultant_or_Expert
+40 --> Total_Num_Beds
+41 --> Number_Private_Wards
+42 --> Num_Bed_for_Eco_Weaker_Sec
+43 --> Empanelment_or_Collaboration_with
+44 --> Emergency_Services
+45 --> Tariff_Range
+46 --> State_ID
+47 --> District_ID
+
+-----------------------------
+
