@@ -1,0 +1,340 @@
+
+# -*- coding: utf-8 -*-
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import random
+import pandas
+
+
+df = pd.read_csv("C:/Users/Jeet Das/Desktop/hospital-data.csv",encoding="utf-8")
+
+print("\n------- output data :-----------\n")
+print("State-wise [ India ] hospitals :");
+print("\n-----------------------------------\n")
+
+
+# Question – A : get row and column numbers 
+
+print('---------------------------------------------')
+print("Dimension of the data frame = ",df.shape)
+print('---------------------------------------------')
+
+# Question – B : print column names :
+
+print('------------------------\n Column names as follows :')
+print('------------------------\n')
+count = 0
+for col in df.columns: 
+        print(count,"-->",col)
+        count = count+1
+print("\n-----------------------------\n")
+
+# Question – C : State_Name (using GROUP BY method) and no. of states :
+
+state_names = df.groupby(['State'])[['District']].count()
+print("---------------------------------")
+print("\tAvailable states names : ")
+print("-------------------------------")
+print(state_names)
+print("-------------------------------")
+count = 0
+for row in range(len(state_names)): 
+        count = count+1
+print("total no. of states = ",count)        
+print("-----------------------------\n")
+
+# Question - D : Hospitals in West Bengal
+
+print("\n--- Hospitals in West Bengal :-------")
+df_wb = df[df.State == 'West Bengal']
+df_wb_dist = df_wb.groupby(['District'])[['District_ID']].count()
+
+print("-----------------------------")
+print("\t Disticts with no of hospitals in West Bengal :")
+print("-----------------------------")
+df1= df_wb_dist['District_ID'] 
+print(df1)
+
+print("-----------------------------")
+count = 0
+for row in range(len(df_wb_dist)): 
+        count = count+1
+print("total no. of district in West Bengal = ",count)        
+print("-----------------------------\n")
+
+print('---------------------------------------------')
+print('\t Hospital name in West Bengal :');
+print('----------------------------------------------')
+print(df_wb['Hospital_Name'])
+print('--------------------------------')
+
+
+# Question - E : Number of Hospitals statewise
+
+print("\n--- Number of Hospitals statewise :-------")
+
+df_state = df.groupby(['State'])[['District_ID']].count()
+
+print("-----------------------------")
+print("\t Number of Hospitals statewise  :")
+print("-----------------------------")
+df2= df_state['District_ID'] 
+print(df2)
+print("-----------------------------")
+
+
+
+C:\Users\JEET DAS\AppData\Local\Enthought\Canopy32\edm\envs\User\lib\site-packages\IPython\core\interactiveshell.py:2717: DtypeWarning: Columns (29,30,31,32,40) have mixed types. Specify dtype option on import or set low_memory=False.
+  interactivity=interactivity, compiler=compiler, result=result)
+
+------- output data :-----------
+
+State-wise [ India ] hospitals :
+
+-----------------------------------
+
+---------------------------------------------
+Dimension of the data frame =  (30273, 48)
+---------------------------------------------
+------------------------
+ Column names as follows :
+------------------------
+
+0 --> Sr_No
+1 --> Location_Coordinates
+2 --> Location
+3 --> Hospital_Name
+4 --> Hospital_Category
+5 --> Hospital_Care_Type
+6 --> Discipline_Systems_of_Medicine
+7 --> Address_Original_First_Line
+8 --> State
+9 --> District
+10 --> Subdistrict
+11 --> Pincode
+12 --> Telephone
+13 --> Mobile_Number
+14 --> Emergency_Num
+15 --> Ambulance_Phone_No
+16 --> Bloodbank_Phone_No
+17 --> Foreign_pcare
+18 --> Tollfree
+19 --> Helpline
+20 --> Hospital_Fax
+21 --> Hospital_Primary_Email_Id
+22 --> Hospital_Secondary_Email_Id
+23 --> Website
+24 --> Specialties
+25 --> Facilities
+26 --> Accreditation
+27 --> Hospital_Regis_Number
+28 --> Registeration_Number_Scan
+29 --> Nodal_Person_Info
+30 --> Nodal_Person_Tele
+31 --> Nodal_Person_Email_Id
+32 --> Town
+33 --> Subtown
+34 --> Village
+35 --> Establised_Year
+36 --> Ayush
+37 --> Miscellaneous_Facilities
+38 --> Number_Doctor
+39 --> Num_Mediconsultant_or_Expert
+40 --> Total_Num_Beds
+41 --> Number_Private_Wards
+42 --> Num_Bed_for_Eco_Weaker_Sec
+43 --> Empanelment_or_Collaboration_with
+44 --> Emergency_Services
+45 --> Tariff_Range
+46 --> State_ID
+47 --> District_ID
+
+-----------------------------
+
+---------------------------------
+        Available states names : 
+-------------------------------
+                             District
+State                                
+Andaman and Nicobar Islands         5
+Andhra Pradesh                   1380
+Arunachal Pradesh                  10
+Assam                             183
+Bihar                            1039
+Chandigarh                         60
+Chhattisgarh                      445
+Dadra and Nagar Haveli             18
+Daman and Diu                       5
+Goa                                84
+Gujarat                          3807
+Haryana                          1669
+Himachal Pradesh                  485
+Jammu and Kashmir                  96
+Jharkhand                         478
+Karnataka                        2226
+Kerala                            890
+Lakshadweep                         1
+Madhya Pradesh                    898
+Maharashtra                      4807
+Manipur                            19
+Meghalaya                          62
+Mizoram                            86
+Nagaland                           14
+North Twenty Four Parganas          1
+Odisha                            718
+Puducherry                         47
+Punjab                           1201
+Rajasthan                        1209
+Sikkim                              2
+Tamil Nadu                       2399
+Telangana                        1175
+Tripura                            41
+Uttar Pradesh                    3158
+Uttarakhand                       390
+West Bengal                      1164
+-------------------------------
+total no. of states =  36
+-----------------------------
+
+
+--- Hospitals in West Bengal :-------
+-----------------------------
+         Disticts with no of hospitals in West Bengal :
+-----------------------------
+District
+24 Pargs (N)           2
+Bankura               35
+Bardhaman            117
+Birbhum               31
+Cooch Behar           13
+Darjeeling            30
+Dinajpur Dakshin       3
+Dinajpur Uttar         6
+Hooghly               74
+Howrah                81
+Jalpaiguri            13
+Kolkata              415
+Malda                 21
+Medinipur East        69
+Medinipur West        47
+Murshidabad           24
+Nadia                 49
+North 24 Parganas     71
+Purulia               10
+South 24 Parganas     53
+Name: District_ID, dtype: int64
+-----------------------------
+total no. of district in West Bengal =  20
+-----------------------------
+
+---------------------------------------------
+         Hospital name in West Bengal :
+----------------------------------------------
+29108                                    May Fair Hospital
+29109                              New Saraju Nursing Home
+29110                                     Eskag Sanjeevani
+29111        Irimed Clinics License Astha Medical Services
+29112                                  Sanjeevani Hospital
+29113                            Zenith Point Nursing Home
+29114         Deeamland Nursing Home (Only Kolkata Police)
+29115                               Dreamland Nursing Home
+29116              Five Point Micro Surgery Centre Pvt Ltd
+29117                                      Lb Nursing Home
+29118                           Nabajiban Hospital Pvt Ltd
+29119                              New Nirnoy Nursing Home
+29120                          North Calcutta Nursing Home
+29121                            Serum Sristi Nursing Home
+29122                                    Sterling Hospital
+29123                         Welland Nursing Home Pvt Ltd
+29124                                Ashirvad Nursing Home
+29125             Guru Tegh Bahadur Medical Service Center
+29126               Jitendra Narayan Ray Sishu Seva Bhawan
+29127                              North Land Nursing Home
+29128                              North View Nursing Home
+29129                          Recovery Nursing Home P Ltd
+29130                                             Sevalaya
+29131                              Shakambari Nursing Home
+29132    The Leprosy Mission Permananda Memorial Lepros...
+29133                        Asharam Bhiwaniwalla Hospital
+29134                                  Aurobindo Netralaya
+29135                            Jeevan Jyoti Nursing Home
+29136                      Marwari Relief Soceity Hospital
+29137                             Matri Mangal Pratishthan
+                       
+30243                   Kalpana Maternity and Nursing Home
+30244    Satyarani Memorial Nursing Home And Diagnostic...
+30245                          Sri Bishnu Medical Hallcare
+30246                                       Sushila Clinic
+30247              Sree Ramkrishna Charitable Nursing Home
+30248                               Deepanjan Nursing Home
+30249                    Dr Sima Mondal (Seetanath Clinic)
+30250                 Chikitsha Maternity and Nursing Home
+30251            Dr Das Nursing Home and Diagnostic Center
+30252                           Dr. Baidya`S Nursing Home,
+30253          Dr. Das' Nursing Home and Diagnostic Centre
+30254    Dr. Das Nursing Home and Diagnostic Centre Pvt...
+30255                         Maa Karunamayee Nursing Home
+30256                                  Samrat Nursing Home
+30257                                The Seba Nursing Home
+30258                         Dakshinanchal Swasthya Sadan
+30259                            Matri Bhavan Nursing Home
+30260                                  Sankar Nursing Home
+30261                                Satyajit Nursing Home
+30262                    Spandan Matrnity and Nursing Home
+30263                   Kakdwip Maternity and Nursing Home
+30264                         Sarada M.M.S.K. Nursing Home
+30265                               Maa Durga Nursing Home
+30266                               Greenland Nursing Home
+30267    Dakshin Barasat Eye Hospitex And Micro Surgery...
+30268                                  Banani Nursing Home
+30269          Suraksha Nursing Home And Diagnostic Centre
+30270                              The Amtala Nursing Home
+30271                         Maa Anowara General Hospital
+30272                   Second Sight Southend Eye Hospital
+Name: Hospital_Name, Length: 1164, dtype: object
+--------------------------------
+
+--- Number of Hospitals statewise :-------
+-----------------------------
+         Number of Hospitals statewise  :
+-----------------------------
+State
+Andaman and Nicobar Islands       5
+Andhra Pradesh                 1380
+Arunachal Pradesh                10
+Assam                           183
+Bihar                          1039
+Chandigarh                       60
+Chhattisgarh                    445
+Dadra and Nagar Haveli           18
+Daman and Diu                     5
+Goa                              84
+Gujarat                        3807
+Haryana                        1669
+Himachal Pradesh                485
+Jammu and Kashmir                96
+Jharkhand                       478
+Karnataka                      2226
+Kerala                          890
+Lakshadweep                       1
+Madhya Pradesh                  899
+Maharashtra                    4807
+Manipur                          19
+Meghalaya                        62
+Mizoram                          86
+Nagaland                         14
+North Twenty Four Parganas        1
+Odisha                          718
+Puducherry                       47
+Punjab                         1201
+Rajasthan                      1209
+Sikkim                            2
+Tamil Nadu                     2399
+Telangana                      1175
+Tripura                          41
+Uttar Pradesh                  3158
+Uttarakhand                     390
+West Bengal                    1164
+Name: District_ID, dtype: int64
+-----------------------------
